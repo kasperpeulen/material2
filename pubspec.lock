@@ -181,6 +181,10 @@ packages:
     description: quiver
     source: hosted
     version: "0.21.4"
+  sass:
+    description: sass
+    source: hosted
+    version: "0.4.2"
   scissors:
     description: scissors
     source: hosted

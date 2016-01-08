@@ -7,7 +7,7 @@ import 'dart:html';
 @Component(
     selector: '[md-button]:not(a), [md-raised-button]:not(a), [md-fab]:not(a)',
     templateUrl: 'button.html',
-    styleUrls: const ['button.scss.css'],
+    styleUrls: const ['button.css'],
     encapsulation: ViewEncapsulation.None)
 class MdButton {
   /// Whether a mousedown has occured on this element in the last 100ms.

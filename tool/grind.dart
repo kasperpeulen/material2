@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'package:dart_dev/dart_dev.dart' hide Task;
 import 'package:git/git.dart';
 import 'package:grinder/grinder.dart';
 
@@ -32,10 +32,11 @@ void coverage() {
       '--retry',
       '2',
       '--exclude-test-files',
-      'test/test_all.dart'
+      'test/button_test.dart'
     ]);
   } else {
     // run coverage locally
+    config.coverage.pubServe = true;
     Pub.run('dart_dev', arguments: ['coverage']);
   }
 }
@@ -48,8 +49,10 @@ void format() {
 @Task()
 void test() {
   final platforms = ['firefox', 'chrome', 'dartium', 'safari', 'content-shell'];
-  Process.run('pub', ['serve', 'test']);
-  new TestRunner().test(platformSelector: platforms, pubServe: 8080);
+  Process.run('pub', ['serve', 'test', '--port', '9000']);
+  new Future.delayed(new Duration(seconds: 2), () {
+    new TestRunner().test(platformSelector: platforms, pubServe: 9000);
+  });
 }
 
 @Task('Test dartfmt for all Dart source files')
@@ -63,8 +66,10 @@ void testFormat() {
 void testTravis() {
   // travis only supports firefox and content-shell it seems
   final platforms = ['firefox', 'content-shell'];
-  Process.run('pub', ['serve', 'test']);
-  new TestRunner().test(platformSelector: platforms, pubServe: 8080);
+  Process.run('pub', ['serve', 'test', '--port', '9000']);
+  new Future.delayed(new Duration(seconds: 2), () {
+    new TestRunner().test(platformSelector: platforms, pubServe: 9000);
+  });
 }
 
 @Task()

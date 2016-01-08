@@ -14,8 +14,10 @@ dev_dependencies:
   git: '^0.4.4+2'
   dart_dev: '^1.0.6'
   coverage: '^0.7.2'
+  sass: '^0.4.2'
 transformers:
-- scissors
+- sass
+#- scissors
 - postcss_transformer:
     arguments:
     - use: autoprefixer
