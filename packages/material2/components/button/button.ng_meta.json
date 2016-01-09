@@ -1,0 +1,198 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "dart:async",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "MdButton",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "'[md-button]:not(a), [md-raised-button]:not(a), [md-fab]:not(a)'"
+              },
+              {
+                "1": "templateUrl",
+                "2": "'button.html'"
+              },
+              {
+                "1": "encapsulation",
+                "2": "ViewEncapsulation.None"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "7": [
+          {
+            "1": "isKeyboardFocused",
+            "2": [
+              {
+                "1": "HostBinding",
+                "2": [
+                  "'class.md-button-focus'"
+                ],
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "1": "MdAnchor",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "'a[md-button], a[md-raised-button], a[md-fab]'"
+              },
+              {
+                "1": "inputs",
+                "2": "const ['disabled']"
+              },
+              {
+                "1": "host",
+                "2": "const {'(mousedown)' : 'onMousedown()', '(focus)' : 'onFocus()', '(blur)' : 'onBlur()', '[tabIndex]' : 'tabIndex', '[class.md-button-focus]' : 'isKeyboardFocused', '[attr.aria-disabled]' : 'isAriaDisabled'}"
+              },
+              {
+                "1": "templateUrl",
+                "2": "'button.html'"
+              },
+              {
+                "1": "styleUrls",
+                "2": "const ['button.css']"
+              },
+              {
+                "1": "encapsulation",
+                "2": "ViewEncapsulation.None"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "6": [
+          "OnChanges"
+        ]
+      }
+    ],
+    "6": "button.dart",
+    "10": [
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i0"
+      }
+    ]
+  },
+  "MdButton": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "[md-button]:not(a), [md-raised-button]:not(a), [md-fab]:not(a)",
+      "exportAs": null,
+      "type": {
+        "name": "MdButton",
+        "moduleUrl": "asset:material2/lib/components/button/button.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {
+        "mousedown": "onMousedown()",
+        "focus": "onFocus()",
+        "blur": "onBlur()"
+      },
+      "hostProperties": {
+        "class.md-button-focus": "isKeyboardFocused"
+      },
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<span class=\"md-button-wrapper\">\n  <ng-content></ng-content>\n</span>\n",
+        "templateUrl": "asset:material2/lib/components/button/button.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": [
+          "*"
+        ]
+      }
+    }
+  },
+  "MdAnchor": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "a[md-button], a[md-raised-button], a[md-fab]",
+      "exportAs": null,
+      "type": {
+        "name": "MdAnchor",
+        "moduleUrl": "asset:material2/lib/components/button/button.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "disabled": "disabled"
+      },
+      "outputs": {},
+      "hostListeners": {
+        "focus": "onFocus()",
+        "blur": "onBlur()",
+        "mousedown": "onMousedown()",
+        "click": "onClick($event)"
+      },
+      "hostProperties": {
+        "tabIndex": "tabIndex",
+        "attr.aria-disabled": "isAriaDisabled",
+        "class.md-button-focus": "isKeyboardFocused"
+      },
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        3
+      ],
+      "template": {
+        "encapsulation": 2,
+        "template": "<span class=\"md-button-wrapper\">\n  <ng-content></ng-content>\n</span>\n",
+        "templateUrl": "asset:material2/lib/components/button/button.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:material2/lib/components/button/button.css"
+        ],
+        "ngContentSelectors": [
+          "*"
+        ]
+      }
+    }
+  }
+}

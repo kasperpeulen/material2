@@ -1,0 +1,97 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "../components/button/button.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "DemoApp",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "'demo-app'"
+              },
+              {
+                "1": "providers",
+                "2": "const []"
+              },
+              {
+                "1": "templateUrl",
+                "2": "'demo_app.html'"
+              },
+              {
+                "1": "directives",
+                "2": "const [MdButton]"
+              },
+              {
+                "1": "pipes",
+                "2": "const []"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "8": [
+          {
+            "2": "MdButton"
+          }
+        ]
+      }
+    ],
+    "6": "demo_app.dart",
+    "10": [
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "../components/button/button.ng_deps.dart",
+        "4": "i1"
+      }
+    ]
+  },
+  "DemoApp": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "demo-app",
+      "exportAs": null,
+      "type": {
+        "name": "DemoApp",
+        "moduleUrl": "asset:material2/lib/demo_app/demo_app.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<p>\n  material2 Works!\n\n  <button md-button>HELLO</button>\n  <button md-raised-button class=\"md-primary\">HELLO</button>\n  <button md-fab class=\"md-accent\">HI</button>\n</p>\n",
+        "templateUrl": "asset:material2/lib/demo_app/demo_app.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}
