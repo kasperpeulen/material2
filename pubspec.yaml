@@ -23,8 +23,8 @@ transformers:
 - postcss_transformer:
     arguments:
     - use: autoprefixer
-- test/pub_serve:
-    $include: test/**_test{.*,}.dart
 - angular2:
     entry_points: example/main.dart
+- test/pub_serve:
+    $include: test/**_test{.*,}.dart
 - dart_to_js_script_rewriter

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dart_dev/dart_dev.dart' hide Task;
 import 'package:git/git.dart';
 import 'package:grinder/grinder.dart';
+import 'dart:convert';
 
 void main(List<String> args) {
   grind(args);
@@ -10,9 +11,7 @@ void main(List<String> args) {
 
 @Task()
 @Depends(analyze, testFormat, testTravis)
-void travis() {
-  exit(0);
-}
+void travis() {}
 
 @DefaultTask()
 @Depends(analyze, format, test, updateDemo, coverage)
@@ -52,9 +51,19 @@ void format() {
 @Task()
 test() async {
   final platforms = ['firefox', 'chrome', 'dartium', 'safari', 'content-shell'];
-  runAsync('pub', arguments: ['serve', 'test', '--port', '9001']);
+  var completer = new Completer();
+  Process.start('pub', ['serve', 'test', '--port', '3000']).then((p) async {
+    p.stdout
+        .transform(UTF8.decoder)
+        .transform(const LineSplitter())
+        .listen(print);
+    await completer.future;
+    p.kill();
+  });
+
   await new Future.delayed(new Duration(seconds: 2), () {
-    new TestRunner().test(platformSelector: platforms, pubServe: 9001);
+    new TestRunner().test(platformSelector: platforms, pubServe: 3000);
+    completer.complete();
   });
 }
 
@@ -69,9 +78,10 @@ void testFormat() {
 testTravis() async {
   // travis only supports firefox and content-shell it seems
   final platforms = ['firefox', 'content-shell'];
-  runAsync('pub', arguments: ['serve', 'test', '--port', '3000']);
+  var future = Process.run('pub', ['serve', 'test', '--port', '3000']);
   await new Future.delayed(new Duration(seconds: 20), () {
     new TestRunner().test(platformSelector: platforms, pubServe: 3000);
+    future.timeout(new Duration(seconds: 0));
   });
 }
 
