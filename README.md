@@ -7,4 +7,4 @@ This is not the official repo for Angular 2 Material.
 
 ### Demo
 
-http://kasperpeulen.github.io/material2/
+http://kasperpeulen.github.io/material2.dart/
