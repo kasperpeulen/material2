@@ -10,7 +10,9 @@ void main(List<String> args) {
 
 @Task()
 @Depends(analyze, testFormat, testTravis)
-void travis() {}
+void travis() {
+  exit(0);
+}
 
 @DefaultTask()
 @Depends(analyze, format, test, updateDemo, coverage)
