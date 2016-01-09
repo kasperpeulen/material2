@@ -8,6 +8,7 @@ before_install:
   - gem install sass
   - sudo apt-get install --yes nodejs
   - sudo apt-get install npm
+  - nvm use 5.0
   - npm install --global postcss postcss-cli autoprefixer
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start

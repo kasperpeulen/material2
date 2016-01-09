@@ -73,6 +73,10 @@ packages:
     description: dart_style
     source: hosted
     version: "0.2.1"
+  dart_to_js_script_rewriter:
+    description: dart_to_js_script_rewriter
+    source: hosted
+    version: "0.1.0+4"
   dartdoc:
     description: dartdoc
     source: hosted
