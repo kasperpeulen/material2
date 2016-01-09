@@ -13,7 +13,7 @@ void main(List<String> args) {
 void travis() {}
 
 @DefaultTask()
-@Depends(analyze, format, test, coverage, updateDemo)
+@Depends(analyze, format, test, updateDemo, coverage)
 void prePush() {}
 
 @Task()
@@ -75,6 +75,6 @@ testTravis() async {
 
 @Task()
 Future updateDemo() async {
-  Pub.run('peanut', arguments: ['--directory', 'example']);
+  await Pub.run('peanut', arguments: ['--directory', 'example']);
   await runGit(['push', 'origin', 'gh-pages']);
 }
