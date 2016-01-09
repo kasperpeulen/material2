@@ -31,6 +31,10 @@
                 "2": "'button.html'"
               },
               {
+                "1": "styleUrls",
+                "2": "const ['button.css']"
+              },
+              {
                 "1": "encapsulation",
                 "2": "ViewEncapsulation.None"
               }
@@ -142,7 +146,9 @@
         "template": "<span class=\"md-button-wrapper\">\n  <ng-content></ng-content>\n</span>\n",
         "templateUrl": "asset:material2/lib/components/button/button.html",
         "styles": [],
-        "styleUrls": [],
+        "styleUrls": [
+          "asset:material2/lib/components/button/button.css"
+        ],
         "ngContentSelectors": [
           "*"
         ]
