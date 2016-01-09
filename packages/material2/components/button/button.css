@@ -1,0 +1,213 @@
+/** Mixin to create distinct classes for fab positions, e.g. ".md-fab-position-bottom-right". */
+/** Styles for all disabled buttons. */
+/** Base styles for all buttons. */
+/** Base styles for raised buttons, including FABs. */
+[md-button] {
+  box-sizing: border-box;
+  position: relative;
+  background: transparent;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: none;
+  border: none;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 6px;
+  margin: 6px 8px;
+  min-width: 88px;
+  line-height: 36px;
+  border-radius: 3px;
+  -webkit-transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+          transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  [md-button]:focus {
+    outline: none; }
+  [md-button]:hover, [md-button]:focus {
+    text-decoration: none; }
+  [md-button]:hover, [md-button].md-button-focus {
+    background: rgba(158, 158, 158, 0.2); }
+  [md-button].md-primary {
+    color: #3f51b5; }
+  [md-button].md-accent {
+    color: #ff5252; }
+  [md-button][disabled] {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+    cursor: default; }
+
+[md-raised-button] {
+  box-sizing: border-box;
+  position: relative;
+  background: transparent;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: none;
+  border: none;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 6px;
+  margin: 6px 8px;
+  min-width: 88px;
+  line-height: 36px;
+  border-radius: 3px;
+  -webkit-transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+          transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  color: rgba(0, 0, 0, 0.87059);
+  background-color: #fafafa; }
+  [md-raised-button]:focus {
+    outline: none; }
+  [md-raised-button]:hover, [md-raised-button]:focus {
+    text-decoration: none; }
+  [md-raised-button]:hover, [md-raised-button].md-button-focus {
+    background: rgba(158, 158, 158, 0.2); }
+  [md-raised-button].md-primary {
+    color: #3f51b5; }
+  [md-raised-button].md-accent {
+    color: #ff5252; }
+  [md-raised-button][disabled] {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+    cursor: default; }
+  [md-raised-button]:active {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); }
+  [md-raised-button][disabled] {
+    box-shadow: none; }
+  [md-raised-button].md-primary {
+    color: rgba(255, 255, 255, 0.87059);
+    background-color: #3f51b5; }
+    [md-raised-button].md-primary:hover, [md-raised-button].md-primary.md-button-focus {
+      background-color: #3949ab; }
+  [md-raised-button].md-accent {
+    color: white;
+    background-color: #ff5252; }
+    [md-raised-button].md-accent:hover, [md-raised-button].md-accent.md-button-focus {
+      background-color: #d50000; }
+  [md-raised-button].md-primary[disabled], [md-raised-button].md-accent[disabled] {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+    cursor: default; }
+
+[md-fab] {
+  box-sizing: border-box;
+  position: relative;
+  background: transparent;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: none;
+  border: none;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 6px;
+  margin: 6px 8px;
+  min-width: 88px;
+  line-height: 36px;
+  border-radius: 3px;
+  -webkit-transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+          transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  z-index: 20;
+  border-radius: 50%;
+  min-width: 0;
+  width: 56px;
+  height: 56px;
+  line-height: 56px;
+  vertical-align: middle; }
+  [md-fab]:focus {
+    outline: none; }
+  [md-fab]:hover, [md-fab]:focus {
+    text-decoration: none; }
+  [md-fab]:hover, [md-fab].md-button-focus {
+    background: rgba(158, 158, 158, 0.2); }
+  [md-fab].md-primary {
+    color: #3f51b5; }
+  [md-fab].md-accent {
+    color: #ff5252; }
+  [md-fab][disabled] {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+    cursor: default; }
+  [md-fab]:active {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); }
+  [md-fab][disabled] {
+    box-shadow: none; }
+  [md-fab].md-primary {
+    color: rgba(255, 255, 255, 0.87059);
+    background-color: #3f51b5; }
+    [md-fab].md-primary:hover, [md-fab].md-primary.md-button-focus {
+      background-color: #3949ab; }
+  [md-fab].md-accent {
+    color: white;
+    background-color: #ff5252; }
+    [md-fab].md-accent:hover, [md-fab].md-accent.md-button-focus {
+      background-color: #d50000; }
+  [md-fab].md-primary[disabled], [md-fab].md-accent[disabled] {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+    cursor: default; }
+  [md-fab].md-mini {
+    line-height: 40px;
+    width: 40px;
+    height: 40px; }
+
+@media screen and (-ms-high-contrast: active) {
+  [md-raised],
+  [md-fab] {
+    border: 1px solid #fff; } }
+.md-fab-position-bottom-right {
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: absolute; }
+
+.md-fab-position-bottom-left {
+  top: auto;
+  right: auto;
+  bottom: 20px;
+  left: 20px;
+  position: absolute; }
+
+.md-fab-position-top-right {
+  top: 20px;
+  right: 20px;
+  bottom: auto;
+  left: auto;
+  position: absolute; }
+
+.md-fab-position-top-left {
+  top: 20px;
+  right: auto;
+  bottom: auto;
+  left: 20px;
+  position: absolute; }
