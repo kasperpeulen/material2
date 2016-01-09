@@ -69,9 +69,9 @@ void testFormat() {
 testTravis() async {
   // travis only supports firefox and content-shell it seems
   final platforms = ['firefox', 'content-shell'];
-  Process.run('pub', ['serve', 'test', '--port', '9000']);
+  runAsync('pub', arguments: ['serve', 'test', '--port', '8000']);
   await new Future.delayed(new Duration(seconds: 2), () {
-    new TestRunner().test(platformSelector: platforms, pubServe: 9000);
+    new TestRunner().test(platformSelector: platforms, pubServe: 8000);
   });
 }
 
