@@ -22,7 +22,7 @@ void analyze() {
 }
 
 @Task('Gather and send coverage data')
-void coverage() {
+coverage() async {
   // coveralls doesn't seem to work for html tests
   if (Platform.environment['COVERALLS_TOKEN'] != null) {
     // report to coveralls
@@ -36,8 +36,9 @@ void coverage() {
     ]);
   } else {
     // run coverage locally
-    config.coverage.pubServe = true;
-    Pub.run('dart_dev', arguments: ['coverage']);
+    config.coverage..pubServe = true;
+
+    await dev(['coverage']);
   }
 }
 
@@ -47,10 +48,10 @@ void format() {
 }
 
 @Task()
-void test() {
+test() async {
   final platforms = ['firefox', 'chrome', 'dartium', 'safari', 'content-shell'];
   Process.run('pub', ['serve', 'test', '--port', '9000']);
-  new Future.delayed(new Duration(seconds: 2), () {
+  await new Future.delayed(new Duration(seconds: 2), () {
     new TestRunner().test(platformSelector: platforms, pubServe: 9000);
   });
 }
@@ -63,17 +64,17 @@ void testFormat() {
 }
 
 @Task()
-void testTravis() {
+testTravis() async {
   // travis only supports firefox and content-shell it seems
   final platforms = ['firefox', 'content-shell'];
   Process.run('pub', ['serve', 'test', '--port', '9000']);
-  new Future.delayed(new Duration(seconds: 2), () {
+  await new Future.delayed(new Duration(seconds: 2), () {
     new TestRunner().test(platformSelector: platforms, pubServe: 9000);
   });
 }
 
 @Task()
 Future updateDemo() async {
-  Pub.global.run('peanut', arguments: ['--directory', 'example']);
+  Pub.run('peanut', arguments: ['--directory', 'example']);
   await runGit(['push', 'origin', 'gh-pages']);
 }

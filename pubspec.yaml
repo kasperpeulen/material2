@@ -15,6 +15,7 @@ dev_dependencies:
   dart_dev: '^1.0.6'
   coverage: '^0.7.2'
   sass: '^0.4.2'
+  peanut: '^0.0.1+2'
 transformers:
 - sass
 #- scissors

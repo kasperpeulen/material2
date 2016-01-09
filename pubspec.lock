@@ -149,6 +149,10 @@ packages:
     description: path
     source: hosted
     version: "1.3.9"
+  peanut:
+    description: peanut
+    source: hosted
+    version: "0.0.1+2"
   petitparser:
     description: petitparser
     source: hosted
