@@ -88,7 +88,7 @@ testTravis() async {
     p.kill();
   });
 
-  await new Future.delayed(new Duration(seconds: 2), () {
+  await new Future.delayed(new Duration(seconds: 20), () {
     new TestRunner().test(platformSelector: platforms, pubServe: 3000);
     completer.complete();
   });
