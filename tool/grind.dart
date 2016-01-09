@@ -78,10 +78,19 @@ void testFormat() {
 testTravis() async {
   // travis only supports firefox and content-shell it seems
   final platforms = ['firefox', 'content-shell'];
-  var future = Process.run('pub', ['serve', 'test', '--port', '3000']);
-  await new Future.delayed(new Duration(seconds: 20), () {
+  var completer = new Completer();
+  Process.start('pub', ['serve', 'test', '--port', '3000']).then((p) async {
+    p.stdout
+        .transform(UTF8.decoder)
+        .transform(const LineSplitter())
+        .listen(print);
+    await completer.future;
+    p.kill();
+  });
+
+  await new Future.delayed(new Duration(seconds: 2), () {
     new TestRunner().test(platformSelector: platforms, pubServe: 3000);
-    future.timeout(new Duration(seconds: 0));
+    completer.complete();
   });
 }
 
