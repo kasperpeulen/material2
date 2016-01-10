@@ -51,20 +51,7 @@ void format() {
 @Task()
 test() async {
   final platforms = ['firefox', 'chrome', 'dartium', 'safari', 'content-shell'];
-  var completer = new Completer();
-  Process.start('pub', ['serve', 'test', '--port', '3000']).then((p) async {
-    p.stdout
-        .transform(UTF8.decoder)
-        .transform(const LineSplitter())
-        .listen(print);
-    await completer.future;
-    p.kill();
-  });
-
-  await new Future.delayed(new Duration(seconds: 2), () {
-    new TestRunner().test(platformSelector: platforms, pubServe: 3000);
-    completer.complete();
-  });
+  await runTestsWithPubServe(platforms);
 }
 
 @Task('Test dartfmt for all Dart source files')
@@ -78,24 +65,25 @@ void testFormat() {
 testTravis() async {
   // travis only supports firefox and content-shell it seems
   final platforms = ['firefox', 'content-shell'];
-  var completer = new Completer();
-  Process.start('pub', ['serve', 'test', '--port', '3000']).then((p) async {
-    p.stdout
-        .transform(UTF8.decoder)
-        .transform(const LineSplitter())
-        .listen(print);
-    await completer.future;
-    p.kill();
-  });
-
-  await new Future.delayed(new Duration(seconds: 20), () {
-    new TestRunner().test(platformSelector: platforms, pubServe: 3000);
-    completer.complete();
-  });
+  await runTestsWithPubServe(platforms);
 }
 
 @Task()
 Future updateDemo() async {
   await Pub.run('peanut', arguments: ['--directory', 'example']);
   await runGit(['push', 'origin', 'gh-pages']);
+}
+
+runTestsWithPubServe(List<String> platforms) async {
+  final arguments = ['serve', 'test', '--port', '3000'];
+  final process = await Process.start('pub', arguments);
+
+  process.stderr.map(UTF8.decode).forEach(stderr.write);
+
+  await process.stdout
+      .map(UTF8.decode)
+      .firstWhere((string) => string.contains("Build completed successfully"));
+
+  await new TestRunner().testAsync(platformSelector: platforms, pubServe: 3000);
+  process.kill();
 }
