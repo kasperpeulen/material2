@@ -31,6 +31,7 @@ main() {
     });
 
     ngTest('button[md-button]', () async {
+      expect(1, 2);
       final fixture = await builder.createAsync(TestApp);
       final testComponent = fixture.debugElement.componentInstance;
       final buttonDebugElement = fixture.debugElement.query(By.css('button'));
