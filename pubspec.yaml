@@ -21,6 +21,7 @@ transformers:
 # - sass
 - scissors:
     compiledCssExtension: replace
+    sasscPath: ./.dependencies/sassc/bin/sassc
 - postcss_transformer:
     arguments:
     - use: autoprefixer
