@@ -196,7 +196,7 @@ packages:
   scissors:
     description: scissors
     source: hosted
-    version: "0.2.2+1"
+    version: "0.4.1"
   shelf:
     description: shelf
     source: hosted
@@ -265,3 +265,4 @@ packages:
     description: yaml
     source: hosted
     version: "2.1.7"
+sdk: ">=1.13.0 <1.16.0"
